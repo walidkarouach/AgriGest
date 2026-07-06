@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('parcelles', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('culture');
+            $table->decimal('superficie', 8, 2);
+            $table->date('date_plantation');
+            $table->string('statut');
             $table->timestamps();
         });
     }
