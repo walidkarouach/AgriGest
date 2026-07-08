@@ -18,7 +18,21 @@ class ParcelleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nom' => $this->faker->word(),
+            'culture' => $this->faker->randomElement([
+                'Blé',
+                'Maïs',
+                'Tomate',
+                'Olivier',
+                'Pomme de terre'
+            ]),
+            'superficie' => $this->faker->randomFloat(2, 1, 20),
+            'date_plantation' => $this->faker->date(),
+            'statut' => $this->faker->randomElement([
+                'En culture',
+                'Récoltée',
+                'Préparation'
+            ]),
         ];
     }
 }
