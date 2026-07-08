@@ -9,4 +9,12 @@ class Parcelle extends Model
 {
     /** @use HasFactory<\Database\Factories\ParcelleFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nom',
+        'culture',
+        'superficie',
+        'date_plantation',
+        'statut',
+    ];
 }
