@@ -12,7 +12,8 @@ class ParcelleController extends Controller
      */
     public function index()
     {
-        //
+        $parcelles = Parcelle::all();
+        return view('parcelles.index', compact('parcelles'));
     }
 
     /**
