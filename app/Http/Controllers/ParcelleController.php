@@ -21,7 +21,7 @@ class ParcelleController extends Controller
      */
     public function create()
     {
-        //
+        return view('parcelles.create');
     }
 
     /**
@@ -29,7 +29,18 @@ class ParcelleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $request->validate([
+        'nom' => 'required',
+        'culture' => 'required',
+        'superficie' => 'required|numeric',
+        'date_plantation' => 'required|date',
+        'statut' => 'required',
+        ]);
+
+        Parcelle::create($request->all());
+
+        return redirect()->route('parcelles.index')
+            ->with('success', 'Parcelle ajoutée avec succès.');
     }
 
     /**
