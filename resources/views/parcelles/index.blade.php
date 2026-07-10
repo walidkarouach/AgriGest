@@ -54,9 +54,19 @@
                         Modifier
                     </a>
 
-                    <button class="btn btn-danger btn-sm">
+                <form action="{{ route('parcelles.destroy', $parcelle) }}" method="POST" style="display:inline;">
+
+                    @csrf
+                    @method('DELETE')
+
+                    <button
+                        type="submit"
+                        class="btn btn-danger btn-sm"
+                        onclick="return confirm('Voulez-vous vraiment supprimer cette parcelle ?')">
                         Supprimer
                     </button>
+
+                </form>
 
                 </td>
 

@@ -72,6 +72,9 @@ class ParcelleController extends Controller
      */
     public function destroy(Parcelle $parcelle)
     {
-        //
+            $parcelle->delete();
+
+            return redirect()->route('parcelles.index')
+                ->with('success', 'Parcelle supprimée avec succès.');
     }
 }
