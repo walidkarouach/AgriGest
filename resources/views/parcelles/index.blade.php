@@ -42,7 +42,17 @@
 
                 <td>{{ $parcelle->superficie }} ha</td>
 
-                <td>{{ $parcelle->statut }}</td>
+                <td>
+                    @if($parcelle->statut == 'En culture')
+                        <span class="badge bg-success">{{ $parcelle->statut }}</span>
+
+                    @elseif($parcelle->statut == 'Récoltée')
+                        <span class="badge bg-primary">{{ $parcelle->statut }}</span>
+
+                    @else
+                        <span class="badge bg-warning text-dark">{{ $parcelle->statut }}</span>
+                    @endif
+                </td>
 
                 <td>
 

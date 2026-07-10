@@ -64,7 +64,18 @@ class ParcelleController extends Controller
      */
     public function update(Request $request, Parcelle $parcelle)
     {
-        //
+                $request->validate([
+            'nom' => 'required',
+            'culture' => 'required',
+            'superficie' => 'required|numeric',
+            'date_plantation' => 'required|date',
+            'statut' => 'required',
+        ]);
+
+        $parcelle->update($request->all());
+
+        return redirect()->route('parcelles.index')
+                        ->with('success', 'Parcelle modifiée avec succès.');
     }
 
     /**
