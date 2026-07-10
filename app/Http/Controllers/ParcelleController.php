@@ -48,7 +48,7 @@ class ParcelleController extends Controller
      */
     public function show(Parcelle $parcelle)
     {
-        //
+        return view('parcelles.show', compact('parcelle'));
     }
 
     /**
